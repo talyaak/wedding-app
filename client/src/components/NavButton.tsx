@@ -5,11 +5,9 @@ import styles from '../style';
 
 const NavButton: React.FC<ButtonProps> = ({ title, id }) => {
     return (
-        <div className={`${styles.button}`}>
-            <Link to={id} className='block'>
-                {title}
-            </Link>
-        </div>
+        <Link to={id} className={`${styles.navButton}`}>
+            {title}
+        </Link>
     )
 }
 
