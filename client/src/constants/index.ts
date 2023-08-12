@@ -1,21 +1,29 @@
 import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star } from "../assets";
+export interface ButtonProps {
+    id: string;
+    title: string;
+}
 
-export const navLinks = [
+export const navLinks: ButtonProps[] = [
     {
-        id: "home",
-        title: "Home",
+        id: "food",
+        title: "Food Menu",
     },
     {
-        id: "features",
-        title: "Features",
+        id: "rsvp",
+        title: "RSVP",
     },
     {
-        id: "product",
-        title: "Product",
+        id: "faq",
+        title: "FAQ",
     },
     {
-        id: "clients",
-        title: "Clients",
+        id: "location",
+        title: "Location Info",
+    },
+    {
+        id: "schedule",
+        title: "What's The Move? (Schedule)",
     },
 ];
 

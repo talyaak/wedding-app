@@ -13,7 +13,8 @@ module.exports = {
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 reborn: ["reborn", "sans-serif"],
-                baloo: ['Baloo 2', "cursive"]
+                baloo: ['Baloo 2', "cursive"],
+                garamond: ['Cormorant Garamond', "normal"]
             },
         },
         screens: {
