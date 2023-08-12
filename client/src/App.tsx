@@ -4,7 +4,8 @@ import { Hero, Navbar } from './components'
 import { BgLeaf } from './assets'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Menu from './components/Menu'
-import { menuConst as menuConst } from './constants'
+import { infoConst, menuConst as menuConst } from './constants'
+import InfoPage from './components/InfoPage'
 
 
 const App = () => (
@@ -17,7 +18,7 @@ const App = () => (
                     <Route path="/" element={
                         <Hero />
                     } />
-                    <Route path={`/${menuConst.food.id}`} element={
+                    <Route path={`${menuConst.food.id}`} element={
                         <Menu menu={menuConst.food} />
                     } />
                     <Route path={`${menuConst.cocktails.id}`} element={
@@ -26,6 +27,12 @@ const App = () => (
                     <Route path={`${menuConst.faq.id}`} element={
                         <Menu menu={menuConst.faq} />
                     } />
+                    <Route path={`${infoConst.schedule.id}`} element={
+                        <InfoPage info={infoConst.schedule} />
+                    } />
+                    {/* <Route path={`${infoConst.location.id}`} element={
+                        <InfoPage info={infoConst.location} />
+                    } /> */}
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

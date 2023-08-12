@@ -64,6 +64,30 @@ export const menuConst: MenuHolder = {
     }
 }
 
+export interface InfoInterface {
+    id: string;
+    title: string;
+    img: string;
+}
+
+export interface InfoConst {
+    schedule: InfoInterface;
+    location: InfoInterface;
+}
+
+export const infoConst: InfoConst = {
+    schedule: {
+        id: "schedule",
+        title: "What's The Move?",
+        img: "schedule"
+    },
+    location: {
+        id: "location",
+        title: "Location Info",
+        img: "location"
+    }
+}
+
 export const stats = [
     {
         id: "stats-1",

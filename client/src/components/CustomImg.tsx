@@ -6,9 +6,10 @@ interface CustomImgProps {
 }
 
 const CustomImg: React.FC<CustomImgProps> = (props) => {
+    const maxHeight = props.folderType === 'food' ? 36 : 40;
     return (
         <img
-            className={`max-h-40 py-4`}
+            className={`max-h-${maxHeight} py-4`}
             src={`/src/assets/${props.folderType}/${props.path}.png`}
             alt={props.path} />
     )
