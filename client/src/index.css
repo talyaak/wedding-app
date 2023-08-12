@@ -17,7 +17,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #cdcfc1;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-y: visible;
 }
 
 :root {
@@ -29,7 +30,7 @@ body {
 }
 
 * {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 .bg-leaf {
