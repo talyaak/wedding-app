@@ -12,7 +12,7 @@ interface CustomMenuProps {
 const Menu: React.FC<CustomMenuProps> = (props) => {
     return (
         <div className={`flex flex-col justify-start items-center h-fit`}>
-            <div className='font-reborn font-medium xs:text-[40px] ss:text-[60px] sm:text-[70px] mt-20'>{`${props.menu.title} Menu`}</div>
+            <div className='font-reborn font-medium xs:text-[40px] ss:text-[60px] sm:text-[70px] mt-20'>{`${props.menu.title}`}</div>
             <div className='flex xs:flex-col-reverse xs:px-10 lg:px-2 lg:flex-row items-center justify-around py-10 w-full'>
                 <div>
                     {props.menu.imgArr.slice(3).map(obj => (

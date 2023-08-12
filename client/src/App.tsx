@@ -23,6 +23,9 @@ const App = () => (
                     <Route path={`${menuConst.cocktails.id}`} element={
                         <Menu menu={menuConst.cocktails} />
                     } />
+                    <Route path={`${menuConst.faq.id}`} element={
+                        <Menu menu={menuConst.faq} />
+                    } />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

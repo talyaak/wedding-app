@@ -43,18 +43,24 @@ export interface MenuInterface {
 export interface MenuHolder {
     food: MenuInterface;
     cocktails: MenuInterface;
+    faq: MenuInterface;
 }
 
 export const menuConst: MenuHolder = {
     food: {
         id: "food",
-        title: "Food",
+        title: "Food Menu",
         imgArr: ["food_0", "food_1", "food_2", "food_3", "food_4", "food_5"]
     },
     cocktails: {
         id: "cocktails",
-        title: "Cocktails",
+        title: "Cocktails Menu",
         imgArr: ["cocktails_0", "cocktails_1", "cocktails_2", "cocktails_3", "cocktails_4", "cocktails_5"]
+    },
+    faq: {
+        id: "faq",
+        title: "FAQ",
+        imgArr: ["faq_0", "faq_1", "faq_2", "faq_3", "faq_4", "faq_5"]
     }
 }
 
