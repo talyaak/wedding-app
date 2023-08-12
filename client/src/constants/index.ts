@@ -5,31 +5,58 @@ export interface ButtonProps {
 }
 
 export const navLinks: ButtonProps[] = [
+
     {
-        id: "food",
-        title: "Food Menu",
-    },
-    {
-        id: "rsvp",
-        title: "RSVP",
-    },
-    {
-        id: "faq",
-        title: "FAQ",
+        id: "schedule",
+        title: "What's The Move? (Schedule)",
     },
     {
         id: "location",
         title: "Location Info",
     },
     {
-        id: "schedule",
-        title: "What's The Move? (Schedule)",
+        id: "faq",
+        title: "FAQ",
     },
+    {
+        id: "food",
+        title: "Food Menu",
+    },
+    {
+        id: "cocktails",
+        title: "Cocktails Menu",
+    },
+    {
+        id: "rsvp",
+        title: "RSVP",
+    },
+
+
 ];
 
-export const foodImgs = [
-    "food_0", "food_1", "food_2", "food_3", "food_4", "food_5",
-]
+export interface MenuInterface {
+    id: string;
+    title: string;
+    imgArr: string[];
+}
+
+export interface MenuHolder {
+    food: MenuInterface;
+    cocktails: MenuInterface;
+}
+
+export const menuConst: MenuHolder = {
+    food: {
+        id: "food",
+        title: "Food",
+        imgArr: ["food_0", "food_1", "food_2", "food_3", "food_4", "food_5"]
+    },
+    cocktails: {
+        id: "cocktails",
+        title: "Cocktails",
+        imgArr: ["cocktails_0", "cocktails_1", "cocktails_2", "cocktails_3", "cocktails_4", "cocktails_5"]
+    }
+}
 
 export const stats = [
     {

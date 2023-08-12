@@ -24,7 +24,9 @@ const Hero = () => {
             </div>
 
             <div id="nav" className={`flex-1 flex ${styles.flexCenter}`}>
-                <div className={`${styles.flexColAround} bg-[#F1EBE5]/75 border-2 border-[#000000]/25 md:h-[60%] h-[450px] w-[80%] rounded-sm md:my-0 my-2 md:mr-28`}>
+                <div
+                    id="button-container"
+                    className={`${styles.flexColEvenly} bg-[#F1EBE5]/75 border-2 border-[#000000]/25 md:h-[60%] h-[450px] w-[80%] rounded-sm md:my-0 my-2 md:mr-28`}>
                     {navLinks.map(link => (
                         <NavButton key={link.id} title={link.title} id={`${link.id}`} />
                     ))}

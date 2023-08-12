@@ -6,9 +6,9 @@ const styles = {
 
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",
-    flexColAround: "flex flex-col justify-around items-center",
+    flexColEvenly: "flex flex-col justify-evenly items-center",
 
-    navButton: "flex justify-center items-center border-x border-y font-garamond xs:text-xl ss:text-2xl border-[#423f32]/50 rounded-sm w-[87.5%] h-[7.5%]",
+    navButton: "flex justify-center items-center border-x border-y font-garamond xs:text-xl ss:text-2xl border-[#423f32]/50 rounded-sm w-[87.5%] h-[8%]",
 
     paddingX: "sm:px-16 px-6",
     paddingY: "sm:py-16 py-6",

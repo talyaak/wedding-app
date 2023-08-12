@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './style'
 import { Hero, Navbar } from './components'
 import { BgLeaf } from './assets'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Food from './components/Food'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Menu from './components/Menu'
+import { menuConst as menuConst } from './constants'
 
 
 const App = () => (
@@ -16,9 +17,13 @@ const App = () => (
                     <Route path="/" element={
                         <Hero />
                     } />
-                    <Route path="/food" element={
-                        <Food />
+                    <Route path={`/${menuConst.food.id}`} element={
+                        <Menu menu={menuConst.food} />
                     } />
+                    <Route path={`${menuConst.cocktails.id}`} element={
+                        <Menu menu={menuConst.cocktails} />
+                    } />
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>
         </div>
