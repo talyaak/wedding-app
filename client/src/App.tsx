@@ -13,6 +13,7 @@ const App = () => (
 
 
         <div className={'flex-1 flex flex-col items-center bg-cover bg-center bg-no-repeat h-screen w-screen fixed'} style={{ backgroundImage: `url(${BgLeaf})` }}>
+            <Navbar></Navbar>
             <div className={`${styles.boxWidth} w-full h-full overflow-auto`}>
                 <Routes>
                     <Route path="/" element={
@@ -30,9 +31,9 @@ const App = () => (
                     <Route path={`${infoConst.schedule.id}`} element={
                         <InfoPage info={infoConst.schedule} />
                     } />
-                    {/* <Route path={`${infoConst.location.id}`} element={
+                    <Route path={`${infoConst.location.id}`} element={
                         <InfoPage info={infoConst.location} />
-                    } /> */}
+                    } />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>
