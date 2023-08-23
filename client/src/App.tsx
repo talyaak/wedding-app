@@ -6,6 +6,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Menu from './components/Menu'
 import { infoConst, menuConst as menuConst } from './constants'
 import InfoPage from './components/InfoPage'
+import Login from './components/Login'
+import RSVP from './components/RSVP'
 
 
 const App = () => (
@@ -34,6 +36,10 @@ const App = () => (
                     <Route path={`${infoConst.location.id}`} element={
                         <InfoPage info={infoConst.location} />
                     } />
+                    <Route path='rsvp' element={<RSVP />}>
+                        <Route path='' element={<Login />} />
+                        <Route path='*' element={<Login />} />
+                    </Route>
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>
