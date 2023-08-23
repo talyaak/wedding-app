@@ -8,7 +8,8 @@ const styles = {
     flexStart: "flex justify-center items-start",
     flexColEvenly: "flex flex-col justify-evenly items-center",
 
-    navButton: "flex justify-center items-center border-x border-y font-garamond xs:text-xl ss:text-2xl border-[#423f32]/50 rounded-sm w-[87.5%] h-[8%]",
+    navButton: "flex justify-center items-center border-x border-y font-garamond xs:text-xl ss:text-2xl border-[#423f32]/50 rounded-sm w-[87.5%] h-[8%] transition duration-300 ease-in-out hover:bg-[#F1EBE5]/100 cursor-pointer",
+    rsvpButton: "flex justify-center items-center border-x border-y rtl font-assistant xs:text-xl ss:text-2xl border-[#423f32]/50 rounded-sm w-[87.5%] h-[10%] transition duration-300 ease-in-out hover:bg-[#F1EBE5]/100 cursor-pointer",
 
     paddingX: "sm:px-16 px-6",
     paddingY: "sm:py-16 py-6",

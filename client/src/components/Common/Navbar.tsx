@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { close, menu } from '../assets'
-import { ButtonProps, navLinks } from '../constants'
+import { close, menu } from '../../assets'
+import { ButtonProps, navLinks } from '../../constants'
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {

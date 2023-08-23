@@ -1,7 +1,7 @@
-import styles from "../style";
-import { HeroIcon } from "../assets";
-import { NavButton } from ".";
-import { navLinks } from "../constants";
+import styles from "../../style";
+import { HeroIcon } from "../../assets";
+import { NavButton } from "..";
+import { navLinks } from "../../constants";
 
 const Hero = () => {
     return (

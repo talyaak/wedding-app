@@ -24,7 +24,7 @@ const Login = () => {
             <div className="mt-10 w-[80%]">
                 <form className="space-y-6" onSubmit={handleSignIn}>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                        <label htmlFor="email" className="block text-lg font-semibold font-garamond leading-6 text-gray-900">
                             Phone Number <br className='xs:block ss:hidden' /> (If you were invited 😉)
                         </label>
                         <div className="mt-2">
@@ -34,7 +34,7 @@ const Login = () => {
                                 type="tel"
                                 autoComplete="tel"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6"
                                 placeholder="Enter your phone number"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
@@ -46,7 +46,7 @@ const Login = () => {
 
                     <div>
                         <div className="flex items-center justify-between">
-                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="password" className="block text-lg font-semibold font-garamond leading-6 text-gray-900">
                                 Password
                             </label>
 
@@ -60,18 +60,19 @@ const Login = () => {
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
 
-                    <div>
+                    <div className='flex flex-col justify-center items-center'>
                         <button
                             type="submit"
-                            className={`flex w-full justify-center rounded-md ${isFormValid
-                                ? 'bg-[#F1EBE5]/75 hover:bg-[#F1EBE5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                            className={`flex w-full justify-center item rounded-sm ${isFormValid
+                                ? 'bg-[#F1EBE5]/75 hover:bg-[#F1EBE5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400'
                                 : 'bg-gray-300 cursor-not-allowed'
-                                } px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm`}
+                                } xs:w-[50%] ss:w-[30%] mt-2 px-3 py-1.5 text-xl font-semibold font-garamond leading-6 text-black shadow-sm`
+                            }
                         >
                             Sign in
                         </button>

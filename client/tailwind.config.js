@@ -14,7 +14,8 @@ module.exports = {
                 poppins: ["Poppins", "sans-serif"],
                 reborn: ["reborn", "sans-serif"],
                 baloo: ['Baloo 2', "cursive"],
-                garamond: ['Cormorant Garamond', "normal"]
+                garamond: ['Cormorant Garamond', "normal"],
+                assistant: ['Assistant', 'sans-serif']
             },
         },
         screens: {

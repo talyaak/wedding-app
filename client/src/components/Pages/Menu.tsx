@@ -1,9 +1,6 @@
 import React from 'react'
-import styles from '../style'
-// import { foodImgs } from '../constants'
-import { food_0 } from '../assets'
-import CustomImg from './CustomImg'
-import { MenuInterface } from '../constants'
+import CustomImg from '../Common/CustomImg'
+import { MenuInterface } from '../../constants'
 
 interface CustomMenuProps {
     menu: MenuInterface

@@ -1,13 +1,9 @@
-import React from 'react'
-import styles from './style'
-import { Hero, Navbar } from './components'
-import { BgLeaf } from './assets'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import Menu from './components/Menu'
+import { Hero, Navbar, Menu, InfoPage, Login, RSVP, AttendanceMenu } from './components'
+import { BgLeaf } from './assets'
 import { infoConst, menuConst as menuConst } from './constants'
-import InfoPage from './components/InfoPage'
-import Login from './components/Login'
-import RSVP from './components/RSVP'
+import styles from './style'
+import Goodbye from './components/Pages/Goodbye'
 
 
 const App = () => (
@@ -40,6 +36,8 @@ const App = () => (
                         <Route path='' element={<Login />} />
                         <Route path='*' element={<Login />} />
                     </Route>
+                    <Route path='rsvp/attendance' element={<AttendanceMenu />} />
+                    <Route path='goodbye' element={<Goodbye />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

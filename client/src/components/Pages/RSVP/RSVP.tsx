@@ -14,9 +14,10 @@ const RSVP = () => {
                     <h2 className="font-reborn font-medium xs:block text-[38px] ss:hidden">
                         Répondez
                     </h2>
-                    <h2 className="font-reborn font-medium xs:block text-[38px] ss:hidden">
+                    <h2 className="font-reborn font-medium xs:block text-[38px] ss:hidden mb-5">
                         s'il vous plaît
                     </h2>
+
 
                 </div>
 

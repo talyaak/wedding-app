@@ -1,5 +1,5 @@
 import React from 'react'
-import { InfoInterface } from '../constants'
+import { InfoInterface } from '../../constants'
 
 interface CustomInfoProps {
     info: InfoInterface
