@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { LoginRequest } from '../../../api/interfaces/LoginRequest';
 import { useAuth } from '../../Common/AuthContext';
@@ -6,7 +6,16 @@ import { useAuth } from '../../Common/AuthContext';
 const Login = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const { login, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check if the user is already authenticated
+        if (isAuthenticated()) {
+            // User is authenticated, navigate to the desired route
+            navigate('/rsvp/attendance');
+        }
+    }, [isAuthenticated, navigate]);
 
     const isPhoneNumberValid = /^05\d([-]{0,1})\d{7}$/.test(phoneNumber); // Israeli mobile number regex
     const isFormValid = isPhoneNumberValid && password !== '';

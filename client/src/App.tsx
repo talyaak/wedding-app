@@ -7,6 +7,7 @@ import styles from './style'
 import Goodbye from './components/Pages/Goodbye'
 import { AuthProvider, useAuth } from './components/Common/AuthContext'
 import axios from 'axios';
+import ProtectedRoute from './components/Common/ProtectedRoute';
 
 
 const App = () => {
@@ -60,7 +61,7 @@ const App = () => {
                         <Route path='' element={<Login />} />
                         <Route path='*' element={<Login />} />
                     </Route>
-                    <Route path='rsvp/attendance' element={<AttendanceMenu />} />
+                    <Route path='rsvp/attendance' element={<ProtectedRoute element={<AttendanceMenu />} />} />
                     <Route path='goodbye' element={<Goodbye />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
