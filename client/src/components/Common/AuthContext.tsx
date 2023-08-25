@@ -1,15 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { LoginRequest } from '../../api/interfaces/LoginRequest';
 import { useNavigate } from 'react-router-dom';
+import { LoginResponse, UserWithoutSensitiveFields, ValidateResponse } from '../../api/interfaces/AuthInterfaces';
 
-interface User {
-    id: string;
-    name: string;
-    // Other user properties
-}
 
 interface AuthContextType {
-    user: LoginRequest | null;
+    user: UserWithoutSensitiveFields | null;
     login: (userData: LoginRequest) => void;
     logout: () => void;
     isAuthenticated: () => boolean;
@@ -30,8 +26,29 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [user, setUser] = useState<LoginRequest | null>(null); // Store user data
+    const [user, setUser] = useState<UserWithoutSensitiveFields | null>(null); // Store user data
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkAuthenticationStatus = async (): Promise<void> => {
+            try {
+                const response = await fetch('/api/auth/validate', { method: 'POST', credentials: 'include' });
+                if (response.ok) {
+                    const data: ValidateResponse = await response.json();
+                    if (data.isAuthenticated && data.user) setUser(data.user);
+                    else throw new Error("Authentication failed");
+                }
+            } catch (error) {
+                console.error('Error checking authentication status:', error);
+            } finally {
+                setLoading(false); // Set loading to false after checking
+            }
+        };
+
+        checkAuthenticationStatus();
+    }, []);
+
     const login = async (loginData: LoginRequest) => {
         try {
             const response = await fetch('/api/auth/login', {
@@ -43,7 +60,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
             });
 
             if (response.ok) {
-                setUser(loginData);
+                const data: LoginResponse = await response.json();
+                if (data.user) setUser(data.user);
                 navigate('/rsvp/attendance');
             } else {
                 // Handle authentication error
@@ -60,7 +78,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             const response = await fetch('/api/auth/logout', {
                 method: 'POST',
-                credentials: 'include', // Send cookies
+                credentials: 'include',
             });
 
             if (response.ok) {
@@ -77,6 +95,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
 
     const isAuthenticated = () => {
+        console.log(`Authentication status: ${!!user}`);
         return !!user;
     };
 

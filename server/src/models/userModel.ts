@@ -1,7 +1,13 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
+export enum RsvpState {
+    Undecided = 'undecided',
+    Arriving = 'arriving',
+    NotArriving = 'not_arriving',
+}
+
 export interface RSVPData {
-    attending: boolean;
+    attending: RsvpState;
     numberOfGuests: number;
 }
 
@@ -17,7 +23,7 @@ const userSchema = new Schema<User>({
     name: { type: String, required: true },
     password: { type: String, required: true },
     rsvp: {
-        attending: { type: Boolean, default: false },
+        attending: { type: String, enum: Object.values(RsvpState), default: RsvpState.Undecided },
         numberOfGuests: { type: Number, default: 0 },
     }
 });

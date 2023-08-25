@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../../../style'
 import { useNavigate } from 'react-router-dom';
+import { RSVPData, RsvpState } from '../../../api/interfaces/RSVPData';
 
 // Define an enum for RSVP options
 enum RsvpOption {
@@ -13,6 +14,27 @@ enum RsvpOption {
 const AttendanceMenu = () => {
     const [selectedOption, setSelectedOption] = useState<RsvpOption | null>(null);
     const navigate = useNavigate();
+    const [attending, setAttending] = useState<RsvpState>();
+    const [numOfGuests, setNumOfGuests] = useState<number>();
+
+    // Function to fetch user's RSVP status from the backend
+    const fetchUserRsvp = async () => {
+        try {
+            const response = await fetch('/api/user/rsvp');
+            if (response.ok) {
+                const data = await response.json() as RSVPData;
+                console.log(data); // Assuming the response structure is { userRSVP: string }
+                setAttending(data.attending);
+                setNumOfGuests(data.numberOfGuests);
+            }
+        } catch (error) {
+            console.error('Error fetching user RSVP:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchUserRsvp();
+    }, []); // Fetch user's RSVP status when the component mounts
 
     const handleRsvp = (option: RsvpOption): void => {
         // Simulate sending data to the backend and updating state

@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import User from '../models/userModel';
 import { generateJwtToken } from '../utils/jwt';
 import RequestWithBody from '../interfaces/RequestWithBody';
+import { LoginResponse, UserWithoutSensitiveFields, ValidateResponse } from '../interfaces/AuthInterfaces';
 
 interface LoginRequest {
     phoneNumber: string;
@@ -20,7 +21,6 @@ export async function loginUser(req: RequestWithBody<LoginRequest>, res: Respons
         }
 
         const token = generateJwtToken(user._id.toString());
-
         res.cookie('token', token, {
             httpOnly: true,
             // secure: true, // Enable this in production with HTTPS
@@ -28,7 +28,19 @@ export async function loginUser(req: RequestWithBody<LoginRequest>, res: Respons
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
-        res.status(200).json({ message: 'Login successful' });
+        // Send user information without sensitive fields
+        const customUser: UserWithoutSensitiveFields = {
+            phoneNumber: user.phoneNumber,
+            name: user.name,
+            rsvp: user.rsvp,
+        };
+
+        const loginResponse: LoginResponse = {
+            message: 'Login successful',
+            user: customUser,
+        };
+
+        res.status(200).json(loginResponse);
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ message: 'Internal server error' });
@@ -49,5 +61,27 @@ export async function logoutUser(req: Request, res: Response): Promise<void> {
     } catch (error) {
         console.error('Error logging out:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+export async function validateUser(req: Request, res: Response): Promise<void> {
+    try {
+        const user = await User.findById(req.userId);
+        if (!user) throw new Error('User not found');
+        const customUser: UserWithoutSensitiveFields = {
+            phoneNumber: user.phoneNumber,
+            name: user.name,
+            rsvp: user.rsvp,
+        };
+
+        const loginResponse: ValidateResponse = {
+            isAuthenticated: true,
+            user: customUser,
+        };
+
+        res.status(200).json(loginResponse);
+    } catch (error) {
+        res.status(401).json({ isAuthenticated: false });
+        console.log(error);
     }
 }

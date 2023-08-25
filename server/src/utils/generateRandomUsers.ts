@@ -1,6 +1,6 @@
 import mongoose, { connect } from 'mongoose';
 import { faker } from '@faker-js/faker';
-import User, { RSVPData } from '../models/userModel'; // Update the import path
+import User, { RSVPData, RsvpState } from '../models/userModel'; // Update the import path
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv';
 import fs from 'fs/promises';
@@ -20,11 +20,21 @@ const connectDb = async () => {
     }
 };
 
+function getRandomEnumValue<T extends Record<string, any>>(enumObj: T): T[keyof T] {
+    const values = Object.values(enumObj);
+    const randomIndex = Math.floor(Math.random() * values.length);
+    return values[randomIndex];
+}
+
 // Function to generate a random RSVPData
-const generateRandomRSVPData = (): RSVPData => ({
-    attending: faker.datatype.boolean(),
-    numberOfGuests: faker.number.int({ min: 0, max: 5 }),
-});
+const generateRandomRSVPData = (): RSVPData => {
+    const attending = getRandomEnumValue(RsvpState);
+    let numberOfGuests = attending === RsvpState.Arriving ? faker.number.int({ min: 1, max: 2 }) : 0;
+    return {
+        attending: attending,
+        numberOfGuests: numberOfGuests,
+    }
+}
 
 const generateRandomPassword = (plainTextPassword: string): Promise<string> => {
     const saltRounds = 10;
