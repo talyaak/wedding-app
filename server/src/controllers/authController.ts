@@ -34,3 +34,20 @@ export async function loginUser(req: RequestWithBody<LoginRequest>, res: Respons
         res.status(500).json({ message: 'Internal server error' });
     }
 }
+
+export async function logoutUser(req: Request, res: Response): Promise<void> {
+    try {
+        // Clear the authentication cookie by setting an empty cookie with the same name and options
+        res.clearCookie('token', {
+            httpOnly: true,
+            // secure: true, // Enable this in production with HTTPS
+            sameSite: 'strict',
+            maxAge: 0, // Set the maxAge to 0 to immediately expire the cookie
+        });
+
+        res.status(200).json({ message: 'Logout successful' });
+    } catch (error) {
+        console.error('Error logging out:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}

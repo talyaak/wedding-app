@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { LoginRequest } from '../../../api/interfaces/LoginRequest';
+import { useAuth } from '../../Common/AuthContext';
 
 const Login = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-
-    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const isPhoneNumberValid = /^05\d([-]{0,1})\d{7}$/.test(phoneNumber); // Israeli mobile number regex
     const isFormValid = isPhoneNumberValid && password !== '';
 
-    const handleSignIn = (event: React.FormEvent) => {
+    const handleSignIn = async (event: React.FormEvent) => {
         event.preventDefault();
         if (isFormValid) {
-            // Perform your authentication logic here
-
-            // If authentication is successful, navigate to the destination route
-            navigate('attendance');
+            const regex = new RegExp('-', 'g');
+            const loginData: LoginRequest = {
+                phoneNumber: phoneNumber.replace(regex, ''), // without '-' chars
+                password: password
+            }
+            login(loginData);
         }
     };
     return (

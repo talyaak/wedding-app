@@ -2,12 +2,36 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Hero, Navbar, Menu, InfoPage, Login, RSVP, AttendanceMenu } from './components'
 import { BgLeaf } from './assets'
 import { infoConst, menuConst as menuConst } from './constants'
+import { useEffect } from 'react';
 import styles from './style'
 import Goodbye from './components/Pages/Goodbye'
+import { AuthProvider, useAuth } from './components/Common/AuthContext'
+import axios from 'axios';
 
 
-const App = () => (
-    <BrowserRouter>
+const App = () => {
+    const { logout } = useAuth();
+
+    // Add an interceptor to handle 401 responses
+    useEffect(() => {
+        const interceptor = axios.interceptors.response.use(
+            (response) => response,
+            (error) => {
+                if (error.response?.status === 401) {
+                    logout(); // Logout the user
+                    // You can also show a notification to inform the user
+                    window.alert("You have been logged out.");
+                }
+                return Promise.reject(error);
+            }
+        );
+
+        // Cleanup the interceptor when the component unmounts
+        return () => {
+            axios.interceptors.response.eject(interceptor);
+        };
+    }, [logout]);
+    return (
 
 
         <div className={'flex-1 flex flex-col items-center bg-cover bg-center bg-no-repeat h-screen w-screen fixed'} style={{ backgroundImage: `url(${BgLeaf})` }}>
@@ -45,8 +69,10 @@ const App = () => (
 
 
 
-    </ BrowserRouter>
-)
+
+
+    )
+}
 
 
 export default App

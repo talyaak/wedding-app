@@ -51,7 +51,7 @@ const generateRandomUsers = async (count: number) => {
             const hashedPassword = await generateRandomPassword(plainTextPassword);
 
             const user = new User({
-                phoneNumber: faker.phone.number('05#-###-####'),
+                phoneNumber: faker.phone.number('05########'),
                 name: faker.person.fullName(),
                 password: hashedPassword,
                 rsvp: generateRandomRSVPData(),
