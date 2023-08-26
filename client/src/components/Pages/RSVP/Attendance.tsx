@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styles from '../../../style'
 import { useNavigate } from 'react-router-dom';
 import { RSVPData, RsvpState } from '../../../api/interfaces/RSVPData';

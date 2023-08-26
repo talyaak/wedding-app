@@ -1,11 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Hero, Navbar, Menu, InfoPage, Login, RSVP, AttendanceMenu } from './components'
 import { BgLeaf } from './assets'
 import { infoConst, menuConst as menuConst } from './constants'
 import { useEffect } from 'react';
 import styles from './style'
 import Goodbye from './components/Pages/Goodbye'
-import { AuthProvider, useAuth } from './components/Common/AuthContext'
+import { useAuth } from './components/Common/AuthContext'
 import axios from 'axios';
 import ProtectedRoute from './components/Common/ProtectedRoute';
 import AdminPage from './components/Pages/Admin';

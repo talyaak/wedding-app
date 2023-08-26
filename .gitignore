@@ -44,3 +44,4 @@ node_modules/.cache/
 .env.test.local
 .env.production.local
 server/userGenerationLog.json
+server/dist/

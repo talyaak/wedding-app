@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { close, menu } from '../../assets'
 import { ButtonProps, navLinks } from '../../constants'
 import { Link, useLocation } from 'react-router-dom';
@@ -73,7 +73,7 @@ const Navbar = () => {
                     absolute top-20 right-0 mx-4 my-2 min-w[140px] rounded-xl sidebar`}
                 >
                     <ul className="list-none flex-col justify-end items-center flex-1">
-                        {customNavLink.map((nav, index) => (
+                        {customNavLink.map((nav) => (
                             <li
                                 key={nav.id}
                                 className={`font-reborn

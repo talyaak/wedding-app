@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 const mongoUri = process.env.MONGODB_URI;
-const origin = process.env.ORIGIN || 'http://localhost:3000';
+const origin = process.env.ORIGIN || 'http://localhost:4000';
 
 (async () => {
     try {

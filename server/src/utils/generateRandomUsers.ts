@@ -10,7 +10,6 @@ dotenv.config();
 // Connect to MongoDB
 const connectDb = async () => {
     const mongoUri = process.env.MONGODB_URI;
-    console.log(`The MongoDB key is: ${mongoUri}`);
 
     try {
         await mongoose.connect(mongoUri!);

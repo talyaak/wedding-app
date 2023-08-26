@@ -27,7 +27,6 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<UserWithoutSensitiveFields | null>(null); // Store user data
-    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -42,8 +41,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 }
             } catch (error) {
                 console.error('Error checking authentication status:', error);
-            } finally {
-                setLoading(false); // Set loading to false after checking
             }
         };
 
