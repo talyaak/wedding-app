@@ -28,7 +28,7 @@ const publicDirPath = path_1.default.resolve(__dirname, 'assets');
 app.use(express_1.default.static(publicDirPath));
 // Serve the index.html file for the root path
 app.get('/', (req, res) => {
-    const indexPath = path_1.default.join(publicDirPath, 'index.html');
+    const indexPath = path_1.default.join(__dirname, 'index.html');
     res.sendFile(indexPath);
 });
 const mongoUri = process.env.MONGODB_URI;
