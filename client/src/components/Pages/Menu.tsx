@@ -9,7 +9,7 @@ interface CustomMenuProps {
 const Menu: React.FC<CustomMenuProps> = (props) => {
     return (
         <div className='flex flex-col items-center'>
-            <div className={`flex flex-col justify-start items-center h-fit xl:max-w-[80%]`}>
+            <div className={`flex flex-col justify-start items-center h-[fit] xl:max-w-[80%]`}>
                 <div className='font-reborn font-medium xs:text-[40px] ss:text-[60px] sm:text-[70px] xs:mt-0 ss:mt-5'>{`${props.menu.title}`}</div>
                 <div className={`flex xs:flex-col-reverse xs:px-20 lg:px-2 lg:flex-row items-center justify-around xs:py-3 ss:py-8 w-full`}>
                     <div>
