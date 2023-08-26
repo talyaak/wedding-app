@@ -13,7 +13,9 @@ const app = express();
 // const publicDirPath = path.resolve(__dirname, 'assets');
 
 // Serve static files before custom routes
-app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, 'dist', 'assets')));
+console.log(`Express serving file from:\n${path.join(__dirname, 'dist', 'assets')}`);
+
 
 // Serve the index.html file for the root path
 app.get('/', (req, res) => {
