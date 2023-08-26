@@ -4,8 +4,8 @@ import { navLinks } from "../../constants";
 
 const Hero = () => {
     return (
-        <section id="home" className={`flex md:flex-row flex-col justify-start py-2 h-full`}>
-            <div id="logo" className={`flex-1 ${styles.flexCenter} flex-col xl:px-0 sm:px-16 xs:mt-10 md:mt-0 md:mb-0 px-6`}>
+        <section id="home" className={`flex md:flex-row flex-col justify-start py-2 xs:h-[90%] ss:h-full`}>
+            <div id="logo" className={`flex-1 ${styles.flexCenter} flex-col xl:px-0 sm:px-16 xs:mt-0 md:mt-0 md:mb-0 px-6`}>
 
                 <div className="flex flex-row justify-between items-end md:h-[30%]">
                     <img src={`src/assets/HeroIcon.png`} alt="hero" className="w-[40%] md:w-[50%] md:h-[100%] relative mr-4 ml-4" />

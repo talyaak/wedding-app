@@ -15,7 +15,7 @@ const InfoPage: React.FC<CustomInfoProps> = (props) => {
                 src={`/src/assets/${props.info.img}_L.png`}
                 alt={`${props.info.id}`} />
             <img
-                className='max-h-[85%] xs:block xs:mt-10 md:hidden'
+                className='max-h-[65%] xs:block xs:mt-10 md:hidden'
                 src={`/src/assets/${props.info.img}_P.png`}
                 alt={`${props.info.id}`} />
         </div>

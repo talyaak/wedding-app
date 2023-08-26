@@ -84,7 +84,7 @@ const Navbar = () => {
                         text-white
                     `}
                             >
-                                <Link to={nav.id}>{nav.title}</Link>
+                                <Link to={nav.id} onClick={() => setToggle((prev) => !prev)}>{nav.title}</Link>
                             </li>
                         ))}
                         {isAuthenticated() && user?.admin ?
