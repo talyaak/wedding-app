@@ -16,7 +16,7 @@ const app = express();
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/src/assets', express.static(path.join(__dirname, 'public')));
 
-const endpoints = ["/", "food", "cocktails", "faq", "schedule", "location", "rsvp", "goodbye", "admin"];
+const endpoints = ["/", "/food", "/cocktails", "/faq", "/schedule", "/location", "/rsvp", "/goodbye", "/admin"];
 
 // Serve the index.html file for the root path
 app.get(endpoints, (req, res) => {
