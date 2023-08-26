@@ -12,7 +12,7 @@ const Navbar = () => {
     ]
     const isOnHomePage = useLocation().pathname === "/";
     const isShouldHideNavbar = isOnHomePage ? "hidden" : "";
-    const { isAuthenticated, logout } = useAuth();
+    const { isAuthenticated, logout, user } = useAuth();
 
     return (
         <nav className={`w-full flex py-6 justify-between items-center navbar ${isShouldHideNavbar}`}>
@@ -35,6 +35,17 @@ const Navbar = () => {
                         <Link to={nav.id}>{nav.title}</Link>
                     </li>
                 ))}
+                {isAuthenticated() && user?.admin ?
+                    <li
+                        className={`font-reborn
+                        font-normal
+                        cursor-pointer
+                        text-[16px] 
+                        mr-10`}
+                    >
+                        <Link to={'/admin'}>Admin</Link>
+                    </li>
+                    : <></>}
                 {isAuthenticated() ?
                     <li
                         className={`font-reborn
@@ -76,6 +87,18 @@ const Navbar = () => {
                                 <Link to={nav.id}>{nav.title}</Link>
                             </li>
                         ))}
+                        {isAuthenticated() && user?.admin ?
+                            <li
+                                className={`font-reborn
+                        font-normal
+                        cursor-pointer
+                        text-[16px] 
+                        mb-4
+                        text-white`}
+                            >
+                                <Link to={'/admin'}>Admin</Link>
+                            </li>
+                            : <></>}
                         {isAuthenticated() ?
                             <li
                                 className={`font-reborn
@@ -89,6 +112,7 @@ const Navbar = () => {
                                 Log out
                             </li>
                             : <></>}
+
                     </ul>
                 </div>
             </div>

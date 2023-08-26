@@ -8,6 +8,7 @@ import Goodbye from './components/Pages/Goodbye'
 import { AuthProvider, useAuth } from './components/Common/AuthContext'
 import axios from 'axios';
 import ProtectedRoute from './components/Common/ProtectedRoute';
+import AdminPage from './components/Pages/Admin';
 
 
 const App = () => {
@@ -63,6 +64,7 @@ const App = () => {
                     </Route>
                     <Route path='rsvp/attendance' element={<ProtectedRoute element={<AttendanceMenu />} />} />
                     <Route path='goodbye' element={<Goodbye />} />
+                    <Route path='admin' element={<ProtectedRoute element={<AdminPage />} />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>
