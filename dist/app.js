@@ -27,8 +27,9 @@ const app = (0, express_1.default)();
 // Serve static files before custom routes
 app.use('/assets', express_1.default.static(path_1.default.join(__dirname, 'assets')));
 app.use('/src/assets', express_1.default.static(path_1.default.join(__dirname, 'public')));
+const endpoints = ["/", "food", "cocktails", "faq", "schedule", "location", "rsvp", "goodbye", "admin"];
 // Serve the index.html file for the root path
-app.get('*', (req, res) => {
+app.get(endpoints, (req, res) => {
     const indexPath = path_1.default.join(__dirname, 'index.html');
     res.sendFile(indexPath);
 });
