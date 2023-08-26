@@ -14,7 +14,6 @@ const app = express();
 
 // Serve static files before custom routes
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-// console.log(`Express serving file from:\n${path.join(__dirname, 'assets')}`);
 
 
 // Serve the index.html file for the root path
