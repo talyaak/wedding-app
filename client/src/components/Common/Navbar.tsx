@@ -15,8 +15,7 @@ const Navbar = () => {
     const { isAuthenticated, logout, user } = useAuth();
 
     return (
-        <nav className={`w-full flex py-6 justify-between items-center navbar ${isShouldHideNavbar}`}>
-            {/* <img src={logo} alt="hoobank" className='w-[124px] h-[32px]' /> */}
+        <nav className={`w-full flex xs:mt-5 mb-0 ss:py-6 justify-between items-center navbar ${isShouldHideNavbar}`}>
 
             <ul className="list-none md:flex hidden justify-center items-center flex-1">
                 {customNavLink.map((nav) => (
