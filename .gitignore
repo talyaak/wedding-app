@@ -44,3 +44,9 @@ node_modules/.cache/
 .env.production.local
 server/userGenerationLog.json
 server/dist/
+server/src/utils/generateRealUsers/*
+dist/utils/generateRealUsers/inputData.js
+dist/utils/generateRealUsers/inputData.js.map
+dist/utils/generateRealUsers/password.js
+dist/utils/generateRealUsers/password.js.map
+dist/utils/generateRealUsers/password.d.ts
