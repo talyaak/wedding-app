@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export enum RsvpState {
+    NotReplied = 'not_replied',
     Undecided = 'undecided',
     Arriving = 'arriving',
     NotArriving = 'not_arriving',
@@ -23,7 +24,7 @@ const userSchema = new Schema<User>({
     name: { type: String, required: true },
     password: { type: String, required: true },
     rsvp: {
-        attending: { type: String, enum: Object.values(RsvpState), default: RsvpState.Undecided },
+        attending: { type: String, enum: Object.values(RsvpState), default: RsvpState.NotReplied },
         numberOfGuests: { type: Number, default: 0 },
     }
 });

@@ -31,6 +31,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (user) return;
         const checkAuthenticationStatus = async (): Promise<void> => {
             try {
                 const response = await fetch('/api/auth/validate', { method: 'POST', credentials: 'include' });
@@ -95,7 +96,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
 
     const isAuthenticated = () => {
-        console.log(`Authentication status: ${!!user}`);
         return !!user;
     };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { close, menu } from '../../assets'
 import { ButtonProps, navLinks } from '../../constants'
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
@@ -11,6 +12,7 @@ const Navbar = () => {
     ]
     const isOnHomePage = useLocation().pathname === "/";
     const isShouldHideNavbar = isOnHomePage ? "hidden" : "";
+    const { isAuthenticated, logout } = useAuth();
 
     return (
         <nav className={`w-full flex py-6 justify-between items-center navbar ${isShouldHideNavbar}`}>
@@ -33,6 +35,18 @@ const Navbar = () => {
                         <Link to={nav.id}>{nav.title}</Link>
                     </li>
                 ))}
+                {isAuthenticated() ?
+                    <li
+                        className={`font-reborn
+                        font-normal
+                        cursor-pointer
+                        text-[16px] 
+                        mr-10`}
+                        onClick={() => logout()}
+                    >
+                        Log out
+                    </li>
+                    : <></>}
 
             </ul>
 
@@ -62,6 +76,19 @@ const Navbar = () => {
                                 <Link to={nav.id}>{nav.title}</Link>
                             </li>
                         ))}
+                        {isAuthenticated() ?
+                            <li
+                                className={`font-reborn
+                                font-normal
+                                cursor-pointer
+                                text-[16px] 
+                                mb-4
+                                text-white`}
+                                onClick={() => logout()}
+                            >
+                                Log out
+                            </li>
+                            : <></>}
                     </ul>
                 </div>
             </div>

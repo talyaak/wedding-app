@@ -28,8 +28,10 @@ function getRandomEnumValue<T extends Record<string, any>>(enumObj: T): T[keyof 
 
 // Function to generate a random RSVPData
 const generateRandomRSVPData = (): RSVPData => {
-    const attending = getRandomEnumValue(RsvpState);
-    let numberOfGuests = attending === RsvpState.Arriving ? faker.number.int({ min: 1, max: 2 }) : 0;
+    // const attending = getRandomEnumValue(RsvpState);
+    const attending = RsvpState.NotReplied;
+    // let numberOfGuests = attending === RsvpState.Arriving ? faker.number.int({ min: 1, max: 2 }) : 0;
+    let numberOfGuests = 0;
     return {
         attending: attending,
         numberOfGuests: numberOfGuests,
