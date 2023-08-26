@@ -10,7 +10,8 @@
         "build-client": "cd client && npm run build",
         "build-server": "cd server && npm run build",
         "all": "concurrently \"npm run client\" \"npm run server\"",
-        "build-all": "concurrently \"npm run build-client\" \"npm run build-server\""
+        "build-all": "concurrently \"npm run build-client\" \"npm run build-server\"",
+        "start": "cd dist && node app.js"
     },
     "keywords": [],
     "author": "",
