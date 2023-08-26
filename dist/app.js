@@ -25,8 +25,8 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 // const publicDirPath = path.resolve(__dirname, 'assets');
 // Serve static files before custom routes
-app.use(express_1.default.static(path_1.default.join(__dirname, 'dist', 'assets')));
-console.log(`Express serving file from:\n${path_1.default.join(__dirname, 'dist', 'assets')}`);
+app.use(express_1.default.static(path_1.default.join(__dirname, 'assets')));
+console.log(`Express serving file from:\n${path_1.default.join(__dirname, 'assets')}`);
 // Serve the index.html file for the root path
 app.get('/', (req, res) => {
     const indexPath = path_1.default.join(__dirname, 'index.html');
