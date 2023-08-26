@@ -18,7 +18,7 @@ app.use('/src/assets', express.static(path.join(__dirname, 'public')));
 
 
 // Serve the index.html file for the root path
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, 'index.html');
     res.sendFile(indexPath);
 });
