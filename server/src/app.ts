@@ -10,10 +10,10 @@ import path from 'path';
 
 dotenv.config();
 const app = express();
-const publicDirPath = path.resolve(__dirname, 'assets');
+// const publicDirPath = path.resolve(__dirname, 'assets');
 
 // Serve static files before custom routes
-app.use(express.static(publicDirPath));
+app.use(express.static('assets'));
 
 // Serve the index.html file for the root path
 app.get('/', (req, res) => {
