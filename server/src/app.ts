@@ -6,9 +6,21 @@ import authRoutes from './routes/authRoutes';
 import userRoutes from './routes/userRoutes';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 const app = express();
+const publicDirPath = path.resolve(__dirname, 'assets');
+
+// Serve static files before custom routes
+app.use(express.static(publicDirPath));
+
+// Serve the index.html file for the root path
+app.get('/', (req, res) => {
+    const indexPath = path.join(publicDirPath, 'index.html');
+    res.sendFile(indexPath);
+});
+
 const mongoUri = process.env.MONGODB_URI;
 const origin = process.env.ORIGIN || 'http://localhost:4000';
 
