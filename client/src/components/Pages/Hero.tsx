@@ -1,5 +1,4 @@
 import styles from "../../style";
-import { HeroIcon } from "../../assets";
 import { NavButton } from "..";
 import { navLinks } from "../../constants";
 
@@ -9,7 +8,7 @@ const Hero = () => {
             <div id="logo" className={`flex-1 ${styles.flexCenter} flex-col xl:px-0 sm:px-16 xs:mt-10 md:mt-0 md:mb-0 px-6`}>
 
                 <div className="flex flex-row justify-between items-end md:h-[30%]">
-                    <img src={HeroIcon} alt="hero" className="w-[40%] md:w-[50%] md:h-[100%] relative mr-4 ml-4" />
+                    <img src={`src/assets/HeroIcon.png`} alt="hero" className="w-[40%] md:w-[50%] md:h-[100%] relative mr-4 ml-4" />
                     <h1 className="flex-1 font-reborn xs:text-[28px] sm:text-[32px] text-black xs:leading-[60px] ss:leading-[70px] ss:mb-5">
                         We're <br />{" "}
                         Getting <br />{" "}

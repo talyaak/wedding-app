@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Hero, Navbar, Menu, InfoPage, Login, RSVP, AttendanceMenu } from './components'
-import { BgLeaf } from './assets'
 import { infoConst, menuConst as menuConst } from './constants'
 import { useEffect } from 'react';
 import styles from './style'
@@ -36,7 +35,7 @@ const App = () => {
     return (
 
 
-        <div className={'flex-1 flex flex-col items-center bg-cover bg-center bg-no-repeat h-screen w-screen fixed'} style={{ backgroundImage: `url(${BgLeaf})` }}>
+        <div className={'flex-1 flex flex-col items-center bg-cover bg-center bg-no-repeat h-screen w-screen fixed'} style={{ backgroundImage: 'url("src/assets/BgLeaf.png")' }}>
             <Navbar></Navbar>
             <div className={`${styles.boxWidth} w-full h-full overflow-auto`}>
                 <Routes>
