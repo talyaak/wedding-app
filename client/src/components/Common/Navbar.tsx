@@ -96,7 +96,7 @@ const Navbar = () => {
                         mb-4
                         text-white`}
                             >
-                                <Link to={'/admin'}>Admin</Link>
+                                <Link to={'/admin'} onClick={() => setToggle((prev) => !prev)} >Admin</Link>
                             </li>
                             : <></>}
                         {isAuthenticated() ?
