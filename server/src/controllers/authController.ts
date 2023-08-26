@@ -33,6 +33,7 @@ export async function loginUser(req: RequestWithBody<LoginRequest>, res: Respons
             phoneNumber: user.phoneNumber,
             name: user.name,
             rsvp: user.rsvp,
+            admin: !!user.admin
         };
 
         const loginResponse: LoginResponse = {
@@ -72,6 +73,7 @@ export async function validateUser(req: Request, res: Response): Promise<void> {
             phoneNumber: user.phoneNumber,
             name: user.name,
             rsvp: user.rsvp,
+            admin: !!user.admin
         };
 
         const loginResponse: ValidateResponse = {

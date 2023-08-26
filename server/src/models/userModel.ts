@@ -17,6 +17,7 @@ interface User extends Document {
     name: string;
     password: string;
     rsvp: RSVPData;
+    admin?: boolean;
 }
 
 const userSchema = new Schema<User>({
@@ -26,7 +27,8 @@ const userSchema = new Schema<User>({
     rsvp: {
         attending: { type: String, enum: Object.values(RsvpState), default: RsvpState.NotReplied },
         numberOfGuests: { type: Number, default: 0 },
-    }
+    },
+    admin: { type: Boolean, required: false },
 });
 
 export default mongoose.model<User>('User', userSchema);

@@ -14,4 +14,5 @@ export interface UserWithoutSensitiveFields {
     phoneNumber: string;
     name: string;
     rsvp: RSVPData;
+    admin?: boolean;
 }

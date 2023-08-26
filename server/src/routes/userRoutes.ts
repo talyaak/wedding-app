@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
-import { authenticateUser } from '../middleware/authMiddleware';
+import { authenticateAdmin, authenticateUser } from '../middleware/authMiddleware';
 
-import { getUserRSVP, updateUserRSVP } from '../controllers/userController'; // Create these functions
+import { getAllUsersData, getUserRSVP, updateUserRSVP } from '../controllers/userController'; // Create these functions
 import { RSVPData } from '../models/userModel';
 
 const router = express.Router();
@@ -37,6 +37,17 @@ router.put('/rsvp', authenticateUser, async (req: Request, res: Response) => {
 
         return res.json({ message: 'RSVP updated successfully' });
     } catch (error) {
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// Protected route for fetching user's RSVP data
+router.get('/admin', authenticateAdmin, async (req: Request, res: Response) => {
+    try {
+        const usersData = await getAllUsersData();
+        return res.json(usersData);
+    } catch (error) {
+        console.log(error);
         return res.status(500).json({ message: 'Internal server error' });
     }
 });
